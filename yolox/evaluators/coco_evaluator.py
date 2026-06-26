@@ -290,12 +290,12 @@ class COCOEvaluator:
                 _, tmp = tempfile.mkstemp()
                 json.dump(data_dict, open(tmp, "w"))
                 cocoDt = cocoGt.loadRes(tmp)
-            try:
-                from yolox.layers import COCOeval_opt as COCOeval
-            except ImportError:
-                from pycocotools.cocoeval import COCOeval
+            # try:
+            #     from yolox.layers import COCOeval_opt as COCOeval
+            # except ImportError:
+            from pycocotools.cocoeval import COCOeval
 
-                logger.warning("Use standard COCOeval.")
+                # logger.warning("Use standard COCOeval.")
 
             cocoEval = COCOeval(cocoGt, cocoDt, annType[1])
             cocoEval.evaluate()

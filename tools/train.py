@@ -2,6 +2,8 @@
 # -*- coding:utf-8 -*-
 # Copyright (c) Megvii, Inc. and its affiliates.
 
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 import argparse
 import random
 import warnings
@@ -13,7 +15,6 @@ import torch.backends.cudnn as cudnn
 from yolox.core import launch
 from yolox.exp import Exp, check_exp_value, get_exp
 from yolox.utils import configure_module, configure_nccl, configure_omp, get_num_devices
-
 
 def make_parser():
     parser = argparse.ArgumentParser("YOLOX train parser")

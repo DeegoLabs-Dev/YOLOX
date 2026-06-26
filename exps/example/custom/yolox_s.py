@@ -14,12 +14,18 @@ class Exp(MyExp):
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
 
         # Define yourself dataset path
-        self.data_dir = "datasets/coco128"
-        self.train_ann = "instances_train2017.json"
-        self.val_ann = "instances_val2017.json"
+        self.data_dir = "datasets/COCO"
+        self.train_ann = "train.json"
+        self.val_ann = "val.json"
+        self.input_size = (512, 640)
+        self.test_size = (512, 640)
+        
+        self.num_classes = 1
 
-        self.num_classes = 71
-
-        self.max_epoch = 300
+        self.max_epoch = 5
         self.data_num_workers = 4
         self.eval_interval = 1
+        self.no_aug_epochs = 15
+        
+        self.save_history_ckpt = False
+        self.print_interval = 100
